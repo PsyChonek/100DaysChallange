@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.Tracing;
 using System.Security.Cryptography.X509Certificates;
 
@@ -9,12 +9,12 @@ namespace _3.Day
         static void Main(string[] args)
         {
             // Creating array with numbers
-        
+
             int size = Int32.Parse(Console.ReadLine());
 
-            int[] numbers = new int[size-1];
+            int[] numbers = new int[size - 1];
 
-            for (int n = 0; n < size-1; n++ )
+            for (int n = 0; n < size - 1; n++)
             {
                 numbers[n] = n + 2;
             }
@@ -32,8 +32,8 @@ namespace _3.Day
                 {
                     if (test % p == 0)
                     {
-                        p = test+1;
-                        numbers[test-2] = 0;
+                        p = test + 1;
+                        numbers[test - 2] = 0;
                     }
                 }
 
@@ -44,7 +44,7 @@ namespace _3.Day
 
             //
 
-            
+
             Console.WriteLine();
             Console.WriteLine();
 
