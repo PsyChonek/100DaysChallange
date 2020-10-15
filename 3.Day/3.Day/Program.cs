@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Tracing;
+using System.Security.Cryptography.X509Certificates;
 
 namespace _3.Day
 {
@@ -20,6 +21,7 @@ namespace _3.Day
 
             //
 
+
             Console.WriteLine();
 
             // Checking numbers
@@ -30,7 +32,7 @@ namespace _3.Day
                 {
                     if (test % p == 0)
                     {
-                        p = test;
+                        p = test+1;
                         numbers[test-2] = 0;
                     }
                 }
@@ -41,6 +43,27 @@ namespace _3.Day
             }
 
             //
+
+            
+            Console.WriteLine();
+            Console.WriteLine();
+
+            for (int y = 2; y < size; y++)
+            {
+                Boolean prime = true;
+                for (int x = 2; x < y; x++)
+                {
+                    if (y % x == 0)
+                    {
+                        x = y;
+                        prime = false;
+                    }
+                }
+                if (prime)
+                {
+                    Console.Write(y + " ");
+                }
+            }
         }
     }
 }
