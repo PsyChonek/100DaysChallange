@@ -10,7 +10,7 @@ namespace _21.Day
         {
             int[] nums = { 12, 345, 2, 6, 7896};    
             Console.WriteLine(FindNumbers(nums));
-            // To.String(); Better 
+            // To.String(); Better way to do it.
         }
 
         static int FindNumbers(int[] nums)
