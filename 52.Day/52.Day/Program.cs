@@ -10,9 +10,9 @@ namespace _52.Day
     {
         static void Main(string[] args)
         {
-            string[] input = {"bella","label","roller"};
+            string[] input = {"daaccccd","adacbdda","abddbaba","bacbcbcb","bdaaaddc","cdadacba","bacbdcda","bacdaacd"};
             foreach (string I in CommonChars(input))
-            Console.WriteLine();
+            Console.WriteLine(I);
         }
         static IList<string> CommonChars(string[] A)
         {
@@ -22,16 +22,9 @@ namespace _52.Day
             {
                 Common.Add(C);
             }
-            Console.Write("Písmenka jsou: ");
-            foreach (char C in Common)
-            {
-                Console.Write(C);
-            }
-            Console.WriteLine();
 
             for (int P = 1; P < A.Length; P++)
             {
-
                 for (int Ch = 0; Ch < Common.Count; Ch++)
                 {
                     bool isIn = false;
@@ -39,24 +32,16 @@ namespace _52.Day
                     {
                         if (A[P][C] == Common[Ch])
                         {
-                            Console.WriteLine("Slovo: " + A[P] + " Obsahuje: " + Common[Ch] + " Na indexu: " + C);
                             isIn = true;
                             A[P] = A[P].Substring(0, C) + A[P].Substring(C+1, A[P].Length-1-C);
-                            Console.WriteLine(A[P]);
+                            break;
                         }
-                    }
-                    
+                    }                   
 
                     if (!isIn)
-                    {
+                    {                        
                         Common.RemoveAt(Ch);
-                        Console.Write("Seznam: ");
-                        foreach (char C in Common)
-                        {
-                            Console.Write(C);
-                        }
-
-                        Console.WriteLine();
+                        Ch--;
                     }
                 }
             }
