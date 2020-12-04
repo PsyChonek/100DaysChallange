@@ -7,11 +7,12 @@ namespace _53.Day
     {
         static void Main(string[] args)
         {
-            string S = "loveleetcode";
-            char C = 'e';
+            string S = "abaa";
+            char C = 'b';
 
              foreach (int I in ShortestToChar(S, C))
-               Console.Write(0);
+               Console.Write(I);
+            Console.WriteLine();
         }
         static int[] ShortestToChar(string S, char C)
         {
@@ -20,30 +21,48 @@ namespace _53.Day
             for (int P = 0; P < S.Length; P++)
             {
 
-                int distance = -1;
-
                 for (int K = 0; K < S.Length; K++)
                 {
-                    distance++;
+
                     if (hasBeen)
                     {
-                        Console.WriteLine(K - distance);
-                        if (S[K+distance] == C || S[K-distance] == C)
+                        if(P + K < S.Length && P - K > 0)
                         {
-                            Console.WriteLine("New: " + distance);
-                            break;
+                            if (S[P + K] == C || S[P - K] == C)
+                            {
+                                output.Add(K);
+                                break;
+                            }
                         }
+                        else if(P+K < S.Length)
+                        {
+                            if (S[P + K] == C)
+                            {
+                                output.Add(K);
+                                break;
+                            }
+                        }
+                        else if (P - K > 0)
+                        {
+                            if (S[P - K] == C)
+                            {
+                                output.Add(K);
+                                break;
+                            }
+                        }
+
+
                     }
-                    else if (S[K] == C)
+                    else if (S[P+K] == C)
                     {
-                        Console.WriteLine("Old: " + distance);
-                        if (distance == 0)
+                        if(K == 0)
                         {
                             hasBeen = true;
                         }
+
+                        output.Add(K);
                         break;
                     }
-
 
                 }
             }
